@@ -12,4 +12,5 @@ class MyState(State):
 
 
 class DialogState(StatesGroup):
+    waiting = MyState()
     dialog = MyState()

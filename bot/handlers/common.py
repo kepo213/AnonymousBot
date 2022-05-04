@@ -1,6 +1,6 @@
 from aiogram.types import Message
 from bot.database import add_user
-
+from bot.set_commands import set_commands
 
 async def start(message: Message):
     add_user(message.from_user.id, message.from_user.full_name)
@@ -9,3 +9,4 @@ async def start(message: Message):
         "но так как бот анонимный, у вас не будет никаких данных о разработчике.\nДля нового диалога пропишите "
         "/new_dialog\n "
         "Для остановки - /end_dialog\n Желаю хорошо провести время.")
+    await set_commands()

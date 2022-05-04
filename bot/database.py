@@ -52,8 +52,9 @@ def get_opponent_id(user_id):
 
 
 def search_opponent(user_id):
-    users = User.select().where(User.user_id != user_id and User.waiting == True)
+    users = User.select().where((User.user_id != user_id) & (User.waiting == True))
     if users.exists():
+        print(users.get().user_id, user_id)
         return users.get().user_id
     query = User.update(waiting=True).where(User.user_id == user_id)
     query.execute()
